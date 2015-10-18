@@ -1,0 +1,79 @@
+# This is an automatically generated file.
+# Please see <file:/usr/share/doc/menu/README> for information.
+
+# to use your own menu, copy this to ~/.fluxbox/menu, then edit
+# ~/.fluxbox/init and change the session.menuFile path to ~/.fluxbox/menu
+
+[begin] (Star Fluxbox)
+ 	[exec] (Command) {gmrun} <>
+    [exec] (Run Program) {xfce4-appfinder --collapsed}
+ 	[exec] (Terminal) {x-terminal-emulator} <>
+	[exec] (File Manager) {x-file-manager} <>
+	[exec] (Web browser) {x-www-browser} <>
+# installer start
+[separator]	
+	[exec] (Install Star) {su-to-root -X -c /usr/sbin/debian-installer-launcher} <>
+# installer end	
+# Automatically generated file. Do not edit (see /usr/share/doc/menu/html/index.html)
+[separator]	
+      [submenu] (Settings) {}
+         [exec] (Display) {arandr}
+         [exec] (Appearance) {/usr/bin/lxappearance} <>
+         [exec] (Choose Wallpaper) {/usr/bin/nitrogen} <>
+         [exec] (Power Manager) {/usr/bin/xfce4-power-manager-settings} <>
+      [end]
+[separator]	
+
+      [submenu] (Accessories) {}
+         [exec] (Calculator) {/usr/bin/gnome-calculator} <>
+         [exec] (Screenshot) {/usr/bin/xfce4-screenshooter} <>
+         [exec] (Text Editor) {editor} <>
+         [exec] (File Manager) {x-file-manager} <>
+         [exec] (Terminal) {x-terminal-emulator} <>	
+#         [exec] (Xarchiver) {xarchiver} <>		 		 		 
+      [end]
+      [submenu] (Graphics) {}
+         [exec] (Image Viewer) {mirage} <>
+      [end]
+      [submenu] (Internet) {}
+#        [exec] (Ceni Settings) {x-terminal-emulator -x ceni} <>
+#        [exec] (Wicd Network Manager) {gksudo /usr/sbin/wicd} <>
+#        [exec] (Network Manager) {wicd-client -n} <>
+#        [exec] (FileZilla) {/usr/bin/filezilla} <>
+         [exec] (Web browser) {x-www-browser} <>
+         [exec] (Torrent client) {/usr/bin/transmission-gtk} <>
+      [end]
+      [submenu] (Multimedia) {}
+         [exec] (Video Player) {/usr/bin/smplayer}
+         [exec] (Audio Player) {/usr/bin/audacious}
+         [exec] (Audio Mixer) {/usr/bin/xfce4-mixer}
+         [exec] (Disk burner) {xfburn}
+      [end]
+      [submenu] (Office) {}
+         [exec] (Pdf Viewer) {atril}
+      [end]
+      [submenu] (System) {}
+         [exec] (Gdebi Package Installer) {gksudo /usr/bin/gdebi-gtk} <>
+		 [exec] (Default Applications) {gksudo /usr/bin/galternatives} <>
+         [exec] (Bootup Manager) {gksudo /usr/bin/bum}
+         [exec] (Disk Manager) {gksudo /usr/sbin/disk-manager}
+         [exec] (Disk Partitioner) {gksudo /usr/sbin/gparted}
+         [exec] (Root Terminal) {gksudo x-terminal-emulator} <>
+         [exec] (Root File Manager) {gksudo x-file-manager} <>
+         [exec] (System Information) {/usr/bin/hardinfo}
+         [exec] (Synaptic Package Manager) {gksudo /usr/sbin/synaptic} <>
+      [end]
+      [submenu] (Fluxbox) {Settings} <>
+        [config] (Fluxbox Menu)
+        [reconfig] (Reload Config)
+        [restart] (Restart Fluxbox)
+        [workspaces] (Workspaces)
+        [submenu] (Styles) {}
+        [stylesdir] (/usr/share/fluxbox/styles)
+        [stylesdir] (~/.fluxbox/styles)
+      [end]
+    [end]
+  [separator]
+    [exec] (Lock) {/usr/bin/i3lock -n -p default --color=000000} <>  
+	[exec] (Exit) {/usr/bin/star-exit} <>   
+[end]
