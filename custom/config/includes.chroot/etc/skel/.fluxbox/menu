@@ -5,8 +5,9 @@
 # ~/.fluxbox/init and change the session.menuFile path to ~/.fluxbox/menu
 
 [begin] (Star Fluxbox)
- 	[exec] (Command) {gmrun} <>
     [exec] (Run Program) {xfce4-appfinder --collapsed}
+[separator]	
+ 	[exec] (Command) {gmrun} <>
  	[exec] (Terminal) {x-terminal-emulator} <>
 	[exec] (File Manager) {x-file-manager} <>
 	[exec] (Web browser) {x-www-browser} <>
@@ -17,7 +18,7 @@
 # Automatically generated file. Do not edit (see /usr/share/doc/menu/html/index.html)
 [separator]	
       [submenu] (Settings) {}
-         [exec] (Display) {arandr}
+         [exec] (ARandR Screen Layout Editor) {arandr}
          [exec] (Appearance) {/usr/bin/lxappearance} <>
          [exec] (Choose Wallpaper) {/usr/bin/nitrogen} <>
          [exec] (Power Manager) {/usr/bin/xfce4-power-manager-settings} <>
@@ -25,39 +26,44 @@
 [separator]	
 
       [submenu] (Accessories) {}
+         [exec] (Archive Manager) {/usr/bin/file-roller} <>	
          [exec] (Calculator) {/usr/bin/gnome-calculator} <>
-         [exec] (Screenshot) {/usr/bin/xfce4-screenshooter} <>
-         [exec] (Text Editor) {editor} <>
-         [exec] (File Manager) {x-file-manager} <>
+         [exec] (Catfish File Search) {/usr/bin/catfish} <>
+         [exec] (Geany Editor) {editor} <>
+         [exec] (Thunar) {x-file-manager} <>
          [exec] (Terminal) {x-terminal-emulator} <>	
-#         [exec] (Xarchiver) {xarchiver} <>		 		 		 
+         [exec] (Xarchiver) {/usr/bin/xarchiver} <>		 		 		 
       [end]
       [submenu] (Graphics) {}
-         [exec] (Image Viewer) {mirage} <>
+         [exec] (Mirage) {mirage} <>
+         [exec] (Screenshot) {/usr/bin/xfce4-screenshooter} <>
       [end]
       [submenu] (Internet) {}
 #        [exec] (Ceni Settings) {x-terminal-emulator -x ceni} <>
-#        [exec] (Wicd Network Manager) {gksudo /usr/sbin/wicd} <>
 #        [exec] (Network Manager) {wicd-client -n} <>
 #        [exec] (FileZilla) {/usr/bin/filezilla} <>
-         [exec] (Web browser) {x-www-browser} <>
-         [exec] (Torrent client) {/usr/bin/transmission-gtk} <>
+         [exec] (Iceweasel) {x-www-browser} <>
+#        [exec] (Transmission) {/usr/bin/transmission-gtk} <>
+         [exec] (Wicd Network Manager) {gksudo /usr/sbin/wicd} <>
       [end]
       [submenu] (Multimedia) {}
-         [exec] (Video Player) {/usr/bin/smplayer}
-         [exec] (Audio Player) {/usr/bin/audacious}
+         [exec] (SMPlayer) {/usr/bin/smplayer}
+         # [exec] (Audio Player) {/usr/bin/audacious}
+         # [exec] (Pulseaudio Control) {/usr/bin/pavucontrol}
          [exec] (Audio Mixer) {/usr/bin/xfce4-mixer}
-         [exec] (Disk burner) {xfburn}
+         [exec] (Xfburn) {/usr/bin/xfburnxfburn}
       [end]
       [submenu] (Office) {}
-         [exec] (Pdf Viewer) {atril}
+         [exec] (Pdf Viewer) {/usr/bin/zathura}
       [end]
       [submenu] (System) {}
-         [exec] (Gdebi Package Installer) {gksudo /usr/bin/gdebi-gtk} <>
-		 [exec] (Default Applications) {gksudo /usr/bin/galternatives} <>
-         [exec] (Bootup Manager) {gksudo /usr/bin/bum}
+		 [exec] (Alternatives Configurator) {gksudo /usr/bin/galternatives} <>
+		 [exec] (Htop Task Manager) {x-terminal-emulator -T 'htop task manager' -e htop} <>
+         [exec] (Bootup-Manager) {gksudo /usr/bin/bum}
          [exec] (Disk Manager) {gksudo /usr/sbin/disk-manager}
-         [exec] (Disk Partitioner) {gksudo /usr/sbin/gparted}
+         [exec] (Gdebi Package Installer) {gksudo /usr/bin/gdebi-gtk} <>
+         [exec] (Gigolo) {/usr/bin/gigolo} <>
+         [exec] (Gparted) {gksudo /usr/sbin/gparted}
          [exec] (Root Terminal) {gksudo x-terminal-emulator} <>
          [exec] (Root File Manager) {gksudo x-file-manager} <>
          [exec] (System Information) {/usr/bin/hardinfo}

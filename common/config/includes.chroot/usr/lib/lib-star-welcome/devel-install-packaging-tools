@@ -2,7 +2,7 @@ clear
 
 echo "  -----------------------------[ screen $STEPS of $STEPS ]----------------------------
 
-  INSTALL DEVELOPER ENVIRONMENT FOR DEBIAN PACKAGING
+  INSTALL DEBIAN PACKAGING TOOLS
   --------------------------------------------------
   Would you like to install a suite of packages used for developing Debian
   packages? If you choose to do this, the following packages will be

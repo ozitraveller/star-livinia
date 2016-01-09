@@ -54,7 +54,7 @@
          [exec] (Xfburn) {/usr/bin/xfburnxfburn}
       [end]
       [submenu] (Office) {}
-         [exec] (Pdf Viewer) {zathura}
+         [exec] (Pdf Viewer) {/usr/bin/zathura}
       [end]
       [submenu] (System) {}
 		 [exec] (Alternatives Configurator) {gksudo /usr/bin/galternatives} <>

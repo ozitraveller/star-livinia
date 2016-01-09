@@ -4,8 +4,7 @@ set -e
 
 RED='\033[0;41;30m'
 STD='\033[0;0;39m'
-_VERSION='8.2'
-_SOURCE='star-livinia'
+_VERSION="8.2"
  
 pause(){
   read -p "Press [Enter] key to continue..." fackEnterKey
@@ -93,7 +92,7 @@ update(){
 	#echo $PWD
 		
 	rm -rf ./auto/*
-	cp -rf /home/simon/${_SOURCE}/common/auto/* ./auto/
+	cp -rf /home/simon/star-livinia/common/auto/* ./auto/
 	cd config
 
 	if [ ! -d "bootloaders" ]; then
@@ -114,11 +113,11 @@ update(){
 		mkdir ./includes.binary/install
 	fi
 
-	cp -r /home/simon/${_SOURCE}/common/config/* ./
+	cp -r /home/simon/star-livinia/common/config/* ./
 
-	cp -r /home/simon/${_SOURCE}/$1-64/config/hooks/* ./hooks/
-	cp -r /home/simon/${_SOURCE}/$1-64/config/includes.chroot/* ./includes.chroot/
-	cp /home/simon/${_SOURCE}/$1-64/config/package-lists/* ./package-lists/
+	cp -r /home/simon/star-livinia/$1-64/config/hooks/* ./hooks/
+	cp -r /home/simon/star-livinia/$1-64/config/includes.chroot/* ./includes.chroot/
+	cp /home/simon/star-livinia/$1-64/config/package-lists/* ./package-lists/
 
 	sed -i -e 's/VERSION/'${_VERSION}'/g' ./includes.chroot/etc/hostname
 	sed -i -e 's/VERSION/'${_VERSION}'/g' ./includes.chroot/etc/issue

@@ -31,8 +31,9 @@
 # fi
 
 ## Condition: Start Conky after a slight delay
+(sleep 3 && conky -c ~/.conkyrc) &
 # if ! egrep -iqR 'conky' ~/.cache/sessions; then
-#    (sleep 3s && conky -q) &
+   # (sleep 3s && conky -q) &
 # fi
 
 ## The following command will set-up a keyboard map selection tool when
