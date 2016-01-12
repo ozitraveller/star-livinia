@@ -4,7 +4,8 @@ set -e
 
 RED='\033[0;41;30m'
 STD='\033[0;0;39m'
-_VERSION="8.2"
+_VERSION='8.2'
+_SOURCE='star-livinia'
  
 pause(){
   read -p "Press [Enter] key to continue..." fackEnterKey
@@ -65,9 +66,20 @@ remove(){
 	#pause
 }
 
+purge(){
+
+	if prompt "  Purge '$1'?"; then
+		if [ -d "$1" ]; then
+			cd $1
+			sudo lb clean --purge
+			cd ..
+		fi
+	fi
+}
+
 setup(){
 	
-	if prompt "  Setup '$1'?"; then
+	if prompt "  Remove '$1'?"; then
 		if [ -d "$1" ]; then
 			sudo rm -rf $1
 		fi
@@ -86,13 +98,13 @@ setup(){
 }
 
 update(){
-	# echo $PWD
+	#echo $PWD
 #	echo "-Parameter #1 is \"$1\".-"
 	cd $1
-	# echo $PWD
+	#echo $PWD
 		
 	rm -rf ./auto/*
-	cp -rf ../$2/auto/* ./auto/
+	cp -rf /home/$SUDO_USER/${_SOURCE}/common/auto/* ./auto/
 	cd config
 
 	if [ ! -d "bootloaders" ]; then
@@ -105,23 +117,30 @@ update(){
 	rm -rf ./includes.chroot/*
 	rm -rf ./package-lists/*
 	rm -rf ./includes.installer/*
+	rm -rf ./binary_debian-installer
 	rm -rf ./bootloaders/*
 	rm -rf ./includes.binary/*
-	
-	cp ../../$2/config/apt/* ./apt/
-	cp -r ../../$2/config/bootloaders/* ./bootloaders/
-	cp -r ../../$2/config/includes.installer/* ./includes.installer/
-	cp ../../$2/config/includes.installer/preseed.cfg ./includes.binary/install
-	cp -r ../../$2/config/hooks/* ./hooks/
-	cp -r ../../$2/config/includes.chroot/* ./includes.chroot/
-	cp ../../$2/config/package-lists/* ./package-lists/
 
+	if [ ! -d "./includes.binary/install" ]; then
+		mkdir ./includes.binary/install
+	fi
+
+	cp -r /home/$SUDO_USER/${_SOURCE}/common/config/* ./
+
+	cp -r /home/$SUDO_USER/${_SOURCE}/$1-64/config/hooks/* ./hooks/
+	cp -r /home/$SUDO_USER/${_SOURCE}/$1-64/config/includes.chroot/* ./includes.chroot/
+	cp /home/$SUDO_USER/${_SOURCE}/$1-64/config/package-lists/* ./package-lists/
+	
+	cp -r /home/$SUDO_USER/${_SOURCE}/$1-64/config/includes.chroot/* ./includes.chroot/
+	cp /home/$SUDO_USER/${_SOURCE}/$1-64/config/package-lists/* ./package-lists/
+	
+	#cp -r /home/$SUDO_USER/${_SOURCE}/custom/config/* ./
+	
 	sed -i -e 's/VERSION/'${_VERSION}'/g' ./includes.chroot/etc/hostname
 	sed -i -e 's/VERSION/'${_VERSION}'/g' ./includes.chroot/etc/issue
 	sed -i -e 's/VERSION/'${_VERSION}'/g' ./includes.chroot/etc/issue.net
 	sed -i -e 's/VERSION/'${_VERSION}'/g' ./includes.chroot/etc/motd
 	sed -i -e 's/VERSION/'${_VERSION}'/g' ./includes.chroot/etc/os-release
-	
 	#echo $PWD	
 	cd ../..
 	#echo $PWD
@@ -129,7 +148,7 @@ update(){
 	#echo $1-"Updated"
 
 	# uncomment pause to see messages
-	# pause
+	#pause
 }
 
 main(){
@@ -150,7 +169,7 @@ main(){
 	echo " "
 		
 	local choice
-	read -p "Enter choice [ 1 - 6] or q : " choice
+	read -p "Enter choice or q : " choice
 
 	case $choice in
 		sx) setup "xfce" ;;
@@ -165,6 +184,9 @@ main(){
 		bx) build "xfce" ;;
 		bf) build "fb" ;;
 		bo) build "ob" ;;
+		px) purge "xfce" ;;
+		pf) purge "fb" ;;
+		po) purge "ob" ;;
 		q|Q) break;;
 		*) echo -e "\tinvalid answer, please try again" ;;
 	esac
