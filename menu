@@ -4,7 +4,7 @@ set -e
 
 RED='\033[0;41;30m'
 STD='\033[0;0;39m'
-_VERSION='8.2'
+_VERSION='8.3'
 _SOURCE='star-livinia'
  
 pause(){
@@ -39,42 +39,48 @@ function prompt {
 }
 
 build(){
-	# echo "-Parameter #1 is \"$1\".-"
-# 	if [ -d "$1" ]; then
-
-# 	fi
-	#echo $PWD
+	
 	cd $1
-	#echo $PWD
 	sudo x-terminal-emulator -e './build'
-	#sudo ./build
-	#echo $PWD
-	cd ..	
-	#echo $PWD
-	# uncomment pause to see messages
-	#pause
+	# sudo xfce4-terminal -e './build'
+	#./build
+	cd ..
+		
+	pause
+}
+
+removeprompt(){
+
+	if prompt "  Remove '$1'?"; then
+		remove $1
+	fi	
+
 }
 
 remove(){
-	if prompt "  Remove '$1'?"; then
-		if [ -d "$1" ]; then
-			sudo rm -rf $1
-		fi
-	fi	
-	
-	# uncomment pause to see messages
-	#pause
+
+ 	if [ -d "$1" ]; then
+		purge $1
+		sudo rm -rf $1
+	fi
+
+}
+
+purgeprompt(){
+
+	if prompt "  Purge '$1'?"; then
+		purge $1
+	fi
 }
 
 purge(){
 
-	if prompt "  Purge '$1'?"; then
-		if [ -d "$1" ]; then
-			cd $1
-			sudo lb clean --purge
-			cd ..
-		fi
+	if [ -d "$1" ]; then
+		cd $1
+		sudo lb clean --purge
+		cd ..
 	fi
+
 }
 
 setup(){
@@ -175,18 +181,18 @@ main(){
 		sx) setup "xfce" ;;
 		sf) setup "fb" ;;
 		so) setup "ob" ;;
-		rx) remove "xfce" ;;
-		rf) remove "fb" ;;
-		ro) remove "ob" ;;
+		rx) removeprompt "xfce" ;;
+		rf) removeprompt "fb" ;;
+		ro) removeprompt "ob" ;;
 		ux) update "xfce" ${_VERSION} ;;
 		uf) update "fb" ${_VERSION} ;;
 		uo) update "ob" ${_VERSION} ;;
 		bx) build "xfce" ;;
 		bf) build "fb" ;;
 		bo) build "ob" ;;
-		px) purge "xfce" ;;
-		pf) purge "fb" ;;
-		po) purge "ob" ;;
+		px) purgeprompt "xfce" ;;
+		pf) purgeprompt "fb" ;;
+		po) purgeprompt "ob" ;;
 		q|Q) break;;
 		*) echo -e "\tinvalid answer, please try again" ;;
 	esac
