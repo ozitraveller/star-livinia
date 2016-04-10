@@ -29,7 +29,7 @@ sleep 1
 	compton --config ~/.compton.conf &
 	(sleep 3 && tint2) &
 	(sleep 3 && wicd-gtk --tray) &
-# 	(sleep 3 && volumeicon --tray) &
+ 	(sleep 3 && volumeicon --tray) &
 	(sleep 3 && clipit) &
 	(sleep 3 && conky -c ~/.conkyrc) &
 	nitrogen --restore &

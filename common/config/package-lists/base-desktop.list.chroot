@@ -5,6 +5,7 @@ libnotify-bin
 bash-completion
 xfce4-mixer
 # pavucontrol
+volumeicon-alsa
 
 ttf-dejavu 
 fonts-liberation 

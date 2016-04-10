@@ -224,7 +224,7 @@
 		   	<item label="Pdf Viewer">
 				<action name="Execute">
 					<command>
-						/usr/bin/zathura
+						/usr/bin/atril
 					</command>
 				</action>
 			</item>
