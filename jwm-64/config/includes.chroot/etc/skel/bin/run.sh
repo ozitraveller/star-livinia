@@ -6,21 +6,21 @@
 #pgrep wicd-client &>/dev/null; [ $? = 0 ] && killall wicd-client
 pkill wicd-client
 pkill conky
-pkill clipit
+# pkill clipit
 
 # before nitrogen
 hsetroot -solid "#000000" & 
 
 sleep 1
 {
-	compton --config ~/.compton.conf &
-	
-	(sleep 2 && wicd-gtk --tray) &
-	(sleep 3 && volumeicon --tray) &
-	(conky --pause=3 -c ~/.conkyrc) &
-	(sleep 3 && clipit) &
-	nitrogen --restore &
-	(sleep 4 && star-welcome --firstrun) &
+#	compton --config ~/.compton.conf &
+	(sleep 3 && wicd-gtk --tray) &
+# 	(sleep 3 && volumeicon --tray) &
+#	(sleep 3 && clipit) &
+	(sleep 3 && conky -c ~/.conkyrc) &
+	# nitrogen --restore &
+	# feh --bg-scale $HOME/images/wallpapers/shared/filename.jpg &
+	(sleep 6 && star-welcome --firstrun) &
 }
 
 ## Enable power management

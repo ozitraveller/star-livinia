@@ -4,7 +4,7 @@ set -e
 
 RED='\033[0;41;30m'
 STD='\033[0;0;39m'
-_VERSION='8.3'
+_VERSION='8.4'
 _SOURCE='star-livinia'
  
 pause(){
@@ -166,7 +166,7 @@ main(){
 	echo -e "\ts. Setup         x. Xfce"
 	echo -e "\tr. Remove        f. Fluxbox"
 	echo -e "\tu. Update        o. Openbox"
-	echo -e "\tb. Build"
+	echo -e "\tb. Build         j. Jwm"
 	echo -e "\tp. Purge"
 	echo " "
 	echo -e "\tExample - sx Setup Xfce"
@@ -181,18 +181,23 @@ main(){
 		sx) setup "xfce" ;;
 		sf) setup "fb" ;;
 		so) setup "ob" ;;
+		sj) setup "jwm" ;;
 		rx) removeprompt "xfce" ;;
 		rf) removeprompt "fb" ;;
 		ro) removeprompt "ob" ;;
+		rj) removeprompt "jwm" ;;
 		ux) update "xfce" ${_VERSION} ;;
 		uf) update "fb" ${_VERSION} ;;
 		uo) update "ob" ${_VERSION} ;;
+		uj) update "jwm" ${_VERSION} ;;
 		bx) build "xfce" ;;
 		bf) build "fb" ;;
 		bo) build "ob" ;;
+		bj) build "jwm" ;;
 		px) purgeprompt "xfce" ;;
 		pf) purgeprompt "fb" ;;
 		po) purgeprompt "ob" ;;
+		pj) purgeprompt "jwm" ;;
 		q|Q) break;;
 		*) echo -e "\tinvalid answer, please try again" ;;
 	esac

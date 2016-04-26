@@ -26,7 +26,7 @@
 		  <Program label="Archive Manager">/usr/bin/file-roller</Program>
 		  <Program label="Calculator" confirm="false">/usr/bin/gnome-calculator</Program>
 		  <Program label="Catfish File Search" confirm="false">/usr/bin/catfish</Program>
-          <Program label="Geany" confirm="false">editor</Program>
+          <Program label="Leafpad" confirm="false">editor</Program>
 		  <Program label="Terminal">x-terminal-emulator</Program>
 		  <Program label="Thunar">x-file-manager</Program>
 		  <Program label="Xarchiver">/usr/bin/xarchiver</Program>
@@ -38,7 +38,7 @@
       <Menu icon="folder.png" label="Internet">
           <Program icon="firefox.png" label="Iceweasel">x-www-browser</Program>
           <!-- <Program label="Transmission">/usr/bin/transmission-gtk</Program> -->
-          <Program label="Wicd Network Manager">gksudo /usr/sbin/wicd</Program>
+          <Program label="Wicd Network Manager">/usr/bin/wicd-gtk --no-tray</Program>
       </Menu>  
       <Menu icon="folder.png" label="Multimedia">
           <Program label="SMPlayer" confirm="false">/usr/bin/smplayer</Program>
@@ -51,17 +51,17 @@
           <Program label="Pdf Viewer" confirm="false">/usr/bin/xpdf</Program>
       </Menu>      
       <Menu icon="folder.png" label="System">
-		  <Program label="Alternatives Configurator" confirm="false">gksudo /usr/bin/galternatives</Program>
+		  <Program label="Alternatives Configurator" confirm="false">su-to-root -X -c /usr/bin/galternatives</Program>
 		  <Program label="Htop Task Manager" confirm="false">x-terminal-emulator -T 'htop task manager' -e htop</Program>
-          <Program label="Bootup-Manager" confirm="false">gksudo /usr/bin/bum</Program>
-          <Program label="Disk Manager" confirm="false">gksudo /usr/sbin/disk-manager</Program>
-		  <Program label="Gdebi Package Installer" confirm="false">gksudo /usr/bin/gdebi-gtk</Program>
-		  <Program label="Gigolo" confirm="false">/usr/bin/gigolo</Program>
-          <Program label="Gparted" confirm="false">gksudo /usr/sbin/gparted</Program>
-          <Program label="Root Terminal" confirm="false">gksudo x-terminal-emulator</Program>
-          <Program label="Root File Manager" confirm="false">gksudo x-file-manager</Program>
+          <Program label="Bootup-Manager" confirm="false">su-to-root -X -c /usr/bin/bum</Program>
+          <Program label="Disk Manager" confirm="false">su-to-root -X -c /usr/sbin/disk-manager</Program>
+		  <Program label="Gdebi Package Installer" confirm="false">su-to-root -X -c /usr/bin/gdebi-gtk</Program>
+		  <!--<Program label="Gigolo" confirm="false">/usr/bin/gigolo</Program> -->
+          <Program label="Gparted" confirm="false">su-to-root -X -c /usr/sbin/gparted</Program>
+          <Program label="Root Terminal" confirm="false">su-to-root -X -c x-terminal-emulator</Program>
+          <Program label="Root File Manager" confirm="false">su-to-root -X -c x-file-manager</Program>
           <Program label="System Information" confirm="false">/usr/bin/hardinfo</Program>
-          <Program label="Synaptic Package Manager" confirm="false">gksu /usr/sbin/synaptic</Program>
+          <Program label="Synaptic Package Manager" confirm="false">su-to-root -X -c /usr/sbin/synaptic</Program>
       </Menu>
       <Separator/>
       <Restart label="Restart" icon="restart.png"/>
@@ -94,11 +94,17 @@
       <!-- Additional TrayButton attribute: label -->
       <TrayButton label="star">root:1</TrayButton>
 	  <!-- <TrayButton icon="/usr/share/tc/logo.png">root:1</TrayButton> -->
-      <TrayButton label="_">showdesktop</TrayButton>
+      <!-- <TrayButton label="_">showdesktop</TrayButton>
       <TrayButton label="t">exec:x-terminal-emulator</TrayButton>
       <TrayButton label="f">exec:x-file-manager</TrayButton>
       <TrayButton label="m">exec:smplayer</TrayButton>
-      <TrayButton label="w">exec:x-www-browser</TrayButton>
+      <TrayButton label="w">exec:x-www-browser</TrayButton> -->
+      <!-- <TrayButton icon="/usr/share/tc/logo.png">root:1</TrayButton> -->
+      <TrayButton icon="/usr/share/icons/gnome-brave/22x22/places/user-desktop.png">showdesktop</TrayButton>
+      <TrayButton icon="/usr/share/icons/gnome/22x22/apps/utilities-terminal.png">exec:x-terminal-emulator</TrayButton>
+      <TrayButton icon="/usr/share/icons/gnome/22x22/apps/system-file-manager.png">exec:x-file-manager</TrayButton>
+      <TrayButton icon="/usr/share/icons/gnome-colors-common/22x22/apps/smplayer.png">exec:smplayer</TrayButton>
+      <TrayButton icon="/usr/share/icons/gnome/22x22/apps/web-browser.png">exec:x-www-browser</TrayButton>
 
       <!-- Additional Pager attribute: labeled -->
 
@@ -107,7 +113,7 @@
       <Pager labeled="true"/>
 
       <Dock/>
-      <!-- Additional Swallow attribute: height
+      <!-- Additional Swallow attribute: heightstar-livinia-jwm-64-2016APR26
 
 
  
@@ -155,8 +161,8 @@
 	
 	<MenuStyle>
       		<Font>liberation.sans-11</Font>
-		<Foreground>#000000</Foreground>
-		<Background>#ffffff</Background>
+		<Foreground>#ffffff</Foreground>
+		<Background>#262626</Background>
 		<ActiveForeground>#ffffff</ActiveForeground>
 		<ActiveBackground>#398EE7</ActiveBackground>
 	</MenuStyle>

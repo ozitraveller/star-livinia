@@ -15,7 +15,10 @@ if [ ! -f "/home/$USER/.config/star/star-setup" ]; then
     #cd /home/$USER
     #tar xkpsf skel.tar.gz
     #rm skel.tar.gz
-
+    
+	if [ -f "/home/$USER/.gtkrc-2.0" ]; then
+        rpl -q 'REPLACEME' $USER /home/$USER/.gtkrc-2.0 > /dev/null 2>&1
+    fi
     if [ -f "/home/$USER/.mozilla/firefox/cpffssvb.default/prefs.js" ]; then
         rpl -q 'REPLACEME' $USER /home/$USER/.mozilla/firefox/cpffssvb.default/prefs.js > /dev/null 2>&1
     fi

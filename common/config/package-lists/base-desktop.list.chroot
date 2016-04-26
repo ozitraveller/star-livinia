@@ -5,7 +5,7 @@ libnotify-bin
 bash-completion
 xfce4-mixer
 # pavucontrol
-volumeicon-alsa
+# volumeicon-alsa
 
 ttf-dejavu 
 fonts-liberation 
@@ -43,7 +43,7 @@ dmenu
 
 smplayer
 iceweasel
-clipit
+# clipit
 mirage
 conky-all 
 file-roller

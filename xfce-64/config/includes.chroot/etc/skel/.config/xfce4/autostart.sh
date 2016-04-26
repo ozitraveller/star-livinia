@@ -30,7 +30,7 @@
 #     xscreensaver -no-splash &
 # fi
 
-(sleep 3 && volumeicon --tray) &
+# (sleep 3 && volumeicon --tray) &
 
 ## Condition: Start Conky after a slight delay
 (sleep 3 && conky -c ~/.conkyrc) &
