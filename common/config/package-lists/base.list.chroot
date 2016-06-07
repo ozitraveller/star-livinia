@@ -111,6 +111,7 @@ usbutils
 
 # post install locale purge #
 localepurge
+debfoster
 
 xserver-xorg-video-all
 

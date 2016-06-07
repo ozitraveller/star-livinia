@@ -15,6 +15,6 @@ Package: *
 Pin: release a=jessie
 Pin-Priority: 500
 
-# Package: *
-# Pin: release a=jessie-backports
-# Pin-Priority: 100
+Package: *
+Pin: release a=jessie-backports
+Pin-Priority: 100
