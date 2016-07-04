@@ -42,7 +42,8 @@ i3lock
 dmenu
 
 smplayer
-iceweasel
+# iceweasel
+firefox-esr
 # clipit
 mirage
 conky-all 
