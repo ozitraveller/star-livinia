@@ -23,7 +23,7 @@
       <property name="&lt;Super&gt;e" type="string" value="geany"/>
       <property name="&lt;Super&gt;t" type="string" value="xfce4-terminal"/>
       <property name="&lt;Super&gt;l" type="string" value="/usr/bin/i3lock -n -p default --color=000000"/>
-      <property name="&lt;Super&gt;d" type="string" value="dmenu_run -b -i -nb &apos;#151617&apos; -nf &apos;#d8d8d8&apos; -sb &apos;#d8d8d8&apos; -sf &apos;#151617&apos;"/>
+      <property name="&lt;Super&gt;d" type="string" value="/home/REPLACEME/.config/dmenu/dmenu-bind.sh"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

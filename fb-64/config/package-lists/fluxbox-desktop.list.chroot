@@ -4,7 +4,7 @@ fbpanel
 
 hsetroot
 # nitrogen
-feh
+# feh
 
 xfce4-terminal
 # xfce4-mixer
@@ -17,6 +17,8 @@ geany
 # evince
 atril
 # zathura
+
+lsof
 
 thunar
 thunar-data

@@ -9,17 +9,17 @@ connection-test()
 	local repeat='' connection='' options='' opt=''
 	local UserAgent='Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1'
 
-	echo "${S}Testing internet connection....${N}"
+	echo "Testing internet connection...."
 	# ping is a problem when there is no connection, takes too long to time out
 	#ping -c 1 -W 2 google.com &>/dev/null && connection=1 || connection=0
 	wget -T 7 -t 1 -q --spider http://www.google.com/ && connection=1 || connection=0
 
 	# some US ISPs block ping, so do backup tests if that's the case
 	if [ "$connection" -eq 0 ];then
-		echo "${E}test 1 failed, trying test 2....${N}"
+		echo "test 1 failed, trying test 2...."
 		wget -T 12 -t 1 -q --spider http://www.google.com/ && connection=1 || connection=0
 		if [ "$connection" -eq 0 ];then
-			echo "${E}test 2 failed, trying test 3....${N}"
+			echo "test 2 failed, trying test 3...."
 			wget -T $TIME_OUT -t 1 -q --spider http://www.ebay.com/ && connection=1 || connection=0
 		fi
 	fi
@@ -31,11 +31,11 @@ connection-test()
 			repeat='true'
 		else
 			repeat=''
-			echo "${W}No connection to the internet seems to be available.${N}"
+			echo "No connection to the internet seems to be available."
 			exit 1
 		fi
 	else
-		echo "${S}Internet connection is present and working.${N}"
+		echo "Internet connection is present and working."
 	fi
 	
 	if [ "$repeat" == 'true' ];then
@@ -48,7 +48,7 @@ restart_networking()
 	local RestartNetworking='/etc/init.d/networking restart' response=''
 
 	echo $WLINE
-	echo "${W}Connection failed, sorry."
+	echo "Connection failed, sorry."
 }
 
 createFlag() {
@@ -63,6 +63,51 @@ createFlag() {
 runInTerminal() {
     x-terminal-emulator -e 'star-welcome'
     exit 0
+}
+
+showBanner(){
+echo "
+  Welcome to STAR Linux! :)
+
+  This is an optional post-installation script, designed to help you configure
+  your new Linux installation and get the most out of STAR.
+
+  You will now be presented with a series of options. You will need your
+  administrator (sudo) password, so please have it ready.
+
+  You will also need a working internet connection, so if you have not done
+  so already, please configure your internet connection.
+
+  If you do not want to run this script now, you can run it at a later date
+  by entering the command \"star-welcome\" in your terminal."
+  	
+}
+
+submenu () {
+	
+	TEMP=$2[@]
+	TEMP_SUB=("${!TEMP}")
+
+	while :
+	do		
+		printf "\033c"
+		echo " "
+		echo $1" : "
+		echo " "
+	
+		select option in "${TEMP_SUB[@]}"; do
+		echo "X "$option" X"
+			case $option in
+				"back")
+					return
+				;;
+				*)
+					. "$LIBDIR/$option"
+				break
+				;;
+			esac		
+		done
+	done
 }
 
 # First run
@@ -102,7 +147,8 @@ fi
 STEPS_MAIN=('apt-update' 'apt-dist-upgrade' 'office-print' 'media-graphics' 'other' 'devel' 'quit')
 STEPS_OFFICE_PRINT=('install-libreoffice' 'install-printer-packages' 'back')
 STEPS_MEDIA_GRAPHICS=('install-pulseaudio' 'install-gimp' 'back')
-STEPS_OTHER=('install-java-packages' 'install-gigolo-gvfs' 'back')
+STEPS_OTHER=('install-java-packages' 'back')
+# STEPS_OTHER=('install-java-packages' 'install-gigolo-gvfs' 'back')
 STEPS_DEVEL=('devel-install-version-control-tools' 'devel-install-ssh-server' 'devel-install-lamp-stack' 'devel-install-packaging-tools' 'back')
 
 # . "$LIBDIR/intro"
@@ -110,56 +156,9 @@ connection-test
 
 ERROR_MESSAGE=""
 
-showBanner(){
-clear
-
-echo "
-  Welcome to STAR Linux! :)
-
-  This is an optional post-installation script, designed to help you configure
-  your new Linux installation and get the most out of STAR.
-
-  You will now be presented with a series of options. You will need your
-  administrator (sudo) password, so please have it ready.
-
-  You will also need a working internet connection, so if you have not done
-  so already, please configure your internet connection.
-
-  If you do not want to run this script now, you can run it at a later date
-  by entering the command \"star-welcome\" in your terminal."
-  	
-}
-
-submenu () {
-
-	
-	TEMP=$2[@]
-	TEMP_SUB=("${!TEMP}")
-
-	while :
-	do		
-		clear
-		echo " "
-		echo $1" : "
-		echo " "
-	
-		select option in "${TEMP_SUB[@]}"; do
-		echo "X "$option" X"
-			case $option in
-				"back")
-					return
-				;;
-				*)
-					. "$LIBDIR/$option"
-				break
-				;;
-			esac		
-		done
-	done
-}
-
 while :
 do
+	printf "\033c"
 	showBanner
 	echo " "
 	echo "Main Menu:"
@@ -194,8 +193,8 @@ do
 			;;
 
 			"quit")
-				. "$LIBDIR/fini"
-				clear
+				# . "$LIBDIR/fini"
+				printf "\033c"
 				exit
 			;;
 		esac	

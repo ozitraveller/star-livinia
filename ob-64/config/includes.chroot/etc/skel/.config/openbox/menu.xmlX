@@ -66,7 +66,7 @@
 			<item label="ARandR Screen Layout Editor">
 				<action name="Execute">
 					<command>
-						/usr/bin/arandr
+						arandr
 					</command>
 				</action>
 			</item>
@@ -115,13 +115,13 @@
 					</command>
 				</action>
 			</item>
-		    <!--<item label="Catfish File Search">
+		    <item label="Catfish File Search">
 				<action name="Execute">
 					<command>
 						/usr/bin/catfish
 					</command>
 				</action>
-			</item>-->
+			</item>
 			<item label="Geany Editor">
 				<action name="Execute">
 					<command>
@@ -150,13 +150,6 @@
 					</command>
 				</action>
 			</item>
-			<item label="Xterm">
-				<action name="Execute">
-					<command>
-						/usr/bin/xterm
-					</command>
-				</action>
-			</item>
 		</menu>
 		<menu id="graphics" label="Graphics">
 		    <item label="Mirage">
@@ -175,7 +168,7 @@
 			</item>
 		</menu>
 		<menu id="internet" label="Internet">
-			<item label="Firefox">
+			<item label="Iceweasel">
 				<action name="Execute">
 					<command>
 						x-www-browser

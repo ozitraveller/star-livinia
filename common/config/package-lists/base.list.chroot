@@ -139,3 +139,5 @@ mobile-broadband-provider-info
 wireless-tools
 
 lsb-release
+
+apt-listchanges
