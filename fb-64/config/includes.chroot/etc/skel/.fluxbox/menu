@@ -25,7 +25,7 @@
 [separator]	
       [submenu] (Accessories) {}
          [exec] (Archive Manager) {/usr/bin/file-roller} <>	
-		 [exec] (Calculator) {/usr/bin/gnome-calculator} <>
+		 [exec] (Calculator) {/usr/bin/qalculate-gtk} <>
          [exec] (Geany Editor) {editor} <>
          [exec] (Thunar) {x-file-manager} <>
          [exec] (Terminal) {x-terminal-emulator} <>	
@@ -46,7 +46,7 @@
          [exec] (Xfburn) {/usr/bin/xfburn}
       [end]
       [submenu] (Office) {}
-         [exec] (Pdf Viewer) {/usr/bin/atril}
+         [exec] (Pdf Viewer) {/usr/bin/xpdf}
       [end]
       [submenu] (System) {}
       	 [exec] (Alternatives Configurator) {su-to-root -X -c /usr/bin/galternatives} <>
@@ -73,5 +73,5 @@
     [end]
   [separator]
     [exec] (Lock) {/usr/bin/i3lock -n -p default --color=000000} <>  
-	[exec] (Exit) {/usr/bin/star-exit} <>   
+	[exec] (Exit) {/usr/bin/star-logout} <>   
 [end]

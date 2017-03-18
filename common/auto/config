@@ -8,7 +8,10 @@ _LINUX_FLAVOURS="amd64"
 _ARCHIVE_AREAS="main contrib non-free"
 _SOURCE="false"
 # _MIRROR_BINARY="http://mirror.aarnet.edu.au/debian/"
-_MIRROR_BINARY="http://ftp.us.debian.org/debian/"
+# _MIRROR_BINARY="http://ftp.us.debian.org/debian/"
+
+# sudo apt-get install apt-cacher-ng
+_MIRROR_BINARY="http://localhost:3142/ftp.us.debian.org/debian/"
 # _MIRROR_BINARY="http://192.168.0.12:3142/apt-cacher/debian/"
 
 # 	--apt-options "--yes --no-install-recommends" \
@@ -20,6 +23,8 @@ _MIRROR_BINARY="http://ftp.us.debian.org/debian/"
 #	--initramfs-compression lzma \ 
 
 # sudo cp /usr/lib/live/build/binary_rootfs /usr/lib/live/build/binary_rootfs.bak
+
+#     --debootstrap-options "--include=eatmydata" \
 
 lb config noauto \
 	--mode debian \

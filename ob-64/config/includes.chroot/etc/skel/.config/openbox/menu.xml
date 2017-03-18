@@ -111,7 +111,7 @@
 		    <item label="Calculator">
 				<action name="Execute">
 					<command>
-						/usr/bin/gnome-calculator
+						/usr/bin/qalculate-gtk
 					</command>
 				</action>
 			</item>
@@ -238,7 +238,7 @@
 		   	<item label="Pdf Viewer">
 				<action name="Execute">
 					<command>
-						/usr/bin/atril
+						/usr/bin/xpdf
 					</command>
 				</action>
 			</item>
@@ -347,7 +347,7 @@
 		<item label="Exit">
 			<action name="Execute">
 				<command>
-					/usr/bin/star-exit
+					/usr/bin/star-logout
 				</command>
 			</action>
 		</item>

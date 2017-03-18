@@ -22,6 +22,8 @@ gtk2-engines-murrine
 gtk2-engines 
 gtk2-engines-pixbuf
 
+# faba-icon-theme
+# moka-icon-theme
 
 bum 
 hdparm 
@@ -39,6 +41,7 @@ galternatives
 # zenity
 
 i3lock
+# xtrlock
 dmenu
 
 smplayer
@@ -49,8 +52,7 @@ mirage
 conky-all 
 file-roller
 xarchiver
-# engrampa
-gnome-calculator 
+qalculate-gtk
 # transmission-gtk
 
 # audacious
@@ -66,5 +68,23 @@ scrot
 xfce4-appfinder
 xfburn
 xfce4-screenshooter
+xpdf
+# zathura
 
+# tmux
 xterm
+# screen
+
+## hplip + systemd
+# printer-driver-hpcups
+# printer-driver-hpijs
+# foomatic-db-compressed-ppds
+# printer-driver-cups-pdf
+# printer-driver-gutenprint
+# cups-tea4cups
+# cups
+# cups-filters
+
+
+# sudo apt-get install -y cups cups-pdf system-config-printer printer-driver-hpijs hplip
+

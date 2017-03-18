@@ -16,9 +16,9 @@ xfdesktop4
 menu
 
 # evince
-atril
+# atril
 # zathura
-ncdu
+# ncdu
 geany
 
 thunar

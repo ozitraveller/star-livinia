@@ -16,7 +16,7 @@ lxtask
 gmrun
 geany
 # evince
-atril
+# atril
 # zathura
 
 thunar
@@ -29,3 +29,5 @@ tumbler
 
 # wmctrl
 # xdotool
+
+yad

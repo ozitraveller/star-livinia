@@ -4,7 +4,7 @@ set -e
 
 RED='\033[0;41;30m'
 STD='\033[0;0;39m'
-_VERSION='8.6'
+_VERSION='8.7'
 _SOURCE='star-livinia'
  
 pause(){
@@ -65,7 +65,7 @@ build(){
 	#./build
 	cd ..
 		
-	pause
+# 	pause
 }
 
 removeprompt(){

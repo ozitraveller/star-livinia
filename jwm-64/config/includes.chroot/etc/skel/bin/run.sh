@@ -32,3 +32,6 @@ xset r rate 250 25 &
 
 ## Turn on/off system beep
 xset b off &
+
+## read xpdf, xterm, uxrvt etc.. config
+xrdb -merge ~/.Xresources

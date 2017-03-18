@@ -3,8 +3,6 @@ fbpager
 fbpanel
 
 hsetroot
-# nitrogen
-# feh
 
 xfce4-terminal
 # xfce4-mixer
@@ -15,10 +13,10 @@ lxtask
 gmrun
 geany
 # evince
-atril
+# atril
 # zathura
 
-lsof
+# lsof
 
 thunar
 thunar-data
@@ -31,3 +29,5 @@ tumbler
 
 # wmctrl
 # xdotool
+
+yad

@@ -55,6 +55,8 @@ bzip2
 p7zip-full
 p7zip-rar
 
+wmctrl
+
 # whois 
 rpl
 # fuse-utils  fusesmb
@@ -136,7 +138,9 @@ firmware-b43-installer
 firmware-b43legacy-installer 
 b43-fwcutter 
 mobile-broadband-provider-info 
-wireless-tools
+# tool for configuring Linux wireless devices
+iw
+# wireless-tools
 
 lsb-release
 

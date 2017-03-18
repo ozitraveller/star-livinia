@@ -2,6 +2,13 @@
 
 set -e
 
+## install eatmydata early
+#~ if [ ! -f chroot/usr/lib/x86_64-linux-gnu/libeatmydata.so ]; then
+	#~ apt-get download libeatmydata1
+	#~ sudo dpkg-deb --extract libeatmydata1*deb chroot
+	#~ rm -f libeatmydata1*.deb
+#~ fi
+
 # export MKSQUASHFS_OPTIONS="-comp xz"
 
 # export MKSQUASHFS_OPTIONS=" -no-recovery -always-use-fragments -b 1048576 -comp xz -Xbcj x86 -Xdict-size 75%"
@@ -11,6 +18,5 @@ set -e
 #  jessie verion of squash-tools is 4.2!
 export MKSQUASHFS_OPTIONS=" -no-recovery -always-use-fragments -b 1048576"
 
-
+# eatmydata lb build noauto "${@}" 2>&1 | tee "Build - $(date "+%d.%m.%Y - %H:%M").log"
 lb build noauto "${@}" 2>&1 | tee "Build - $(date "+%d.%m.%Y - %H:%M").log"
-
