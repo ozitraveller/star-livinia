@@ -3,6 +3,7 @@
 #####################
 xorg
 xserver-xorg
+x11-xserver-utils
 
 systemd 
 systemd-sysv
@@ -13,7 +14,9 @@ accountsservice
 upower
 
 lightdm
-wicd
+# wicd
+connman
+connman-ui
 # network-manager-gnome
 # network-manager-openvpn-gnome
 # network-manager-pptp-gnome
@@ -113,7 +116,7 @@ usbutils
 
 # post install locale purge #
 localepurge
-debfoster
+# debfoster
 
 xserver-xorg-video-all
 

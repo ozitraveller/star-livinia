@@ -1,12 +1,9 @@
 openbox
-# lxappearance-obconf
 obconf
 obmenu
 tint2
 
 hsetroot
-# nitrogen
-# feh
 
 xfce4-terminal
 # compton

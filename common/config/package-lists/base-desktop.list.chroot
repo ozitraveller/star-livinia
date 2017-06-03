@@ -44,7 +44,8 @@ i3lock
 # xtrlock
 dmenu
 
-smplayer
+mpv
+# smplayer
 iceweasel
 # firefox-esr
 # clipit

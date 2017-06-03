@@ -2,6 +2,13 @@
 
 set -e
 
+
+# This variable is required otherwise
+# /usr/share/live/build/scripts/build/binary_debian-installer fails because
+# the version is empty (nothing known in
+# /usr/share/live/build/functions/releases.sh)
+# export RELEASE_star="0.60"
+
 ## install eatmydata early
 #~ if [ ! -f chroot/usr/lib/x86_64-linux-gnu/libeatmydata.so ]; then
 	#~ apt-get download libeatmydata1

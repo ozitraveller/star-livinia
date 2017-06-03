@@ -8,10 +8,10 @@ _LINUX_FLAVOURS="amd64"
 _ARCHIVE_AREAS="main contrib non-free"
 _SOURCE="false"
 # _MIRROR_BINARY="http://mirror.aarnet.edu.au/debian/"
-# _MIRROR_BINARY="http://ftp.us.debian.org/debian/"
+_MIRROR_BINARY="http://ftp.us.debian.org/debian/"
 
 # sudo apt-get install apt-cacher-ng
-_MIRROR_BINARY="http://localhost:3142/ftp.us.debian.org/debian/"
+# _MIRROR_BINARY="http://localhost:3142/ftp.us.debian.org/debian/"
 # _MIRROR_BINARY="http://192.168.0.12:3142/apt-cacher/debian/"
 
 # 	--apt-options "--yes --no-install-recommends" \
@@ -30,7 +30,7 @@ lb config noauto \
 	--mode debian \
 	--chroot-filesystem squashfs \
 	--distribution "${_DISTRIBUTION}" \
-	--debian-installer-distribution jessie \
+	--debian-installer-distribution "${_DISTRIBUTION}" \
 	--debian-installer live \
 	--architectures "${_ARCHITECTURES}" \
 	--linux-flavours "${_LINUX_FLAVOURS}" \

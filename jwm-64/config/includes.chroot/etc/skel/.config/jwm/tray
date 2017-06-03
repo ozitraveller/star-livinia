@@ -9,7 +9,7 @@
       <TrayButton icon="/usr/share/icons/gnome-brave/22x22/places/user-desktop.png">showdesktop</TrayButton>
       <TrayButton icon="/usr/share/icons/gnome/22x22/apps/utilities-terminal.png">exec:x-terminal-emulator</TrayButton>
       <TrayButton icon="/usr/share/icons/gnome/22x22/apps/system-file-manager.png">exec:x-file-manager</TrayButton>
-      <TrayButton icon="/usr/share/icons/gnome-colors-common/22x22/apps/smplayer.png">exec:smplayer</TrayButton>
+      <TrayButton icon="/usr/share/icons/gnome-colors-common/22x22/apps/smplayer.png">exec:x-media-player</TrayButton>
       <TrayButton icon="/usr/share/icons/gnome/22x22/apps/web-browser.png">exec:x-www-browser</TrayButton>
 
       <TaskList maxwidth="130" border="false"/>

@@ -4,8 +4,19 @@ set -e
 
 RED='\033[0;41;30m'
 STD='\033[0;0;39m'
-_VERSION='8.7'
+_VERSION='8.8'
 _SOURCE='star-livinia'
+
+_FLAVOURS=""
+_NAME="star-livinia-${_VERSION}"
+# ${_VERSION}
+_SETS="official"
+# _SUFFIX="$(date "+%Y%^b%d")"
+_SUFFIX="live"
+
+_TAG=""
+
+_ARCHITECTURE="amd64" #"$(dpkg --print-architecture)"
  
 pause(){
   read -p "Press [Enter] key to continue..." fackEnterKey
@@ -38,33 +49,26 @@ function prompt {
 	done
 }
 
-# rerun script in terminal if necessary
-# Usage: terminalCheck [ -T title ] [arguments...]
-terminalCheck() {
-    if ! [[ -t 0 && -t 1 && -t 2 ]]; then # not attached to terminal
-        if [[ -n $DISPLAY ]]; then # running X
-            if [[ ${1-} = '-T' ]];then
-                local title=${2-}
-                shift 2
-                exec x-terminal-emulator -T "$title" -e "$0" "$@"
-            else
-                exec x-terminal-emulator -e "$0" "$@"
-            fi
-        else
-            echo "$0: no terminal" >&2
-            exit 1
-        fi
-    fi
-}
-
 build(){
 	
 	cd $1
+	
+	rm -f *.iso
+	
 	sudo x-terminal-emulator -e './build'
 	# sudo xfce4-terminal -e './build'
 	#./build
+	
+	if [ -f "live-image-amd64.hybrid.iso" ]; then
+		mv live-image-amd64.hybrid.iso  ${_NAME}-$1-${_ARCHITECTURE}-${_SUFFIX}.iso
+	fi
+
+	if [ -f "live-image-amd64.img" ]; then
+		mv live-image-amd64.img  ${_NAME}-$1-${_ARCHITECTURE}-${_SUFFIX}.img
+	fi
+	
 	cd ..
-		
+
 # 	pause
 }
 
@@ -93,9 +97,10 @@ purgeprompt(){
 }
 
 purge(){
-
+	echo $PWD
 	if [ -d "$1" ]; then
 		cd $1
+			echo $PWD
 		sudo lb clean --purge
 		cd ..
 	fi
@@ -104,11 +109,9 @@ purge(){
 
 setup(){
 	
-	if prompt "  Remove '$1'?"; then
-		if [ -d "$1" ]; then
-			sudo rm -rf $1
-		fi
-	fi	
+	if prompt "  Setup '$1'?"; then
+		remove $1
+	fi		
 
 	sudo mkdir $1 && cd $1 && sudo lb config
 	sudo cp /usr/share/doc/live-build/examples/auto/* auto/
@@ -142,20 +145,20 @@ update(){
 	rm -rf ./includes.chroot/*
 	rm -rf ./package-lists/*
 	rm -rf ./includes.installer/*
-	rm -rf ./binary_debian-installer
+	# rm -rf ./binary_debian-installer
 	rm -rf ./bootloaders/*
 	rm -rf ./includes.binary/*
-
+	rm -rf ./packages.chroot/* 
+	
 	if [ ! -d "./includes.binary/install" ]; then
 		mkdir ./includes.binary/install
 	fi
 
 	cp -r /home/$SUDO_USER/${_SOURCE}/common/config/* ./
+	
+	cp ./includes.installer/preseed.cfg ./includes.binary/install/
 
 	cp -r /home/$SUDO_USER/${_SOURCE}/$1-64/config/hooks/* ./hooks/
-	cp -r /home/$SUDO_USER/${_SOURCE}/$1-64/config/includes.chroot/* ./includes.chroot/
-	cp /home/$SUDO_USER/${_SOURCE}/$1-64/config/package-lists/* ./package-lists/
-	
 	cp -r /home/$SUDO_USER/${_SOURCE}/$1-64/config/includes.chroot/* ./includes.chroot/
 	cp /home/$SUDO_USER/${_SOURCE}/$1-64/config/package-lists/* ./package-lists/
 	
@@ -175,10 +178,10 @@ update(){
 	cd ../..
 	#echo $PWD
 	
-	#echo $1-"Updated"
+	# echo $1-"Updated"
 
 	# uncomment pause to see messages
-	#pause
+	# pause
 }
 
 main(){

@@ -1,6 +1,6 @@
 fluxbox
-fbpager
-fbpanel
+# fbpager
+# fbpanel
 
 hsetroot
 
