@@ -11,7 +11,7 @@
 # Any other components should be inside a compressed tar archive
 # named additions.tar.gz with full file paths
 
-set -e
+set -x
 
 echo STAR-LIVE-Hook: "$0"
 echo ""

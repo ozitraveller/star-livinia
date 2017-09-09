@@ -26,6 +26,9 @@ _MIRROR_BINARY="http://ftp.us.debian.org/debian/"
 
 #     --debootstrap-options "--include=eatmydata" \
 
+	#~ --bootloader "syslinux" \
+	#~ --bootloader "grub" \	
+
 lb config noauto \
 	--mode debian \
 	--chroot-filesystem squashfs \

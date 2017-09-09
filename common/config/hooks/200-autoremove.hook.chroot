@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -x
+
 echo STAR-LIVE-Hook: "$0"
 echo ""
 

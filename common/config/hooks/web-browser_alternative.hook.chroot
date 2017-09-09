@@ -2,7 +2,7 @@
 # set iceweasel as default X web browser.
 #############################################
 
-set -e
+set -x
 
 echo STAR-LIVE-Hook: "$0"
 echo ""

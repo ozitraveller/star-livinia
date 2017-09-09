@@ -2,7 +2,7 @@
 # set xfce4-terminal as default X terminal emulator.
 #############################################
 
-set -e
+set -x
 
 echo STAR-LIVE-Hook: "$0"
 echo ""

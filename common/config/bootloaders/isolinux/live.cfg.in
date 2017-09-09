@@ -4,6 +4,12 @@ label live-@FLAVOUR@
 	linux @LINUX@
 	initrd @INITRD@
 	append @APPEND_LIVE@
+	
+label live-@FLAVOUR@-toram
+	menu label ^Live (@FLAVOUR@ toram)
+	linux @LINUX@
+	initrd @INITRD@
+	append @APPEND_LIVE@ toram
 
 label live-@FLAVOUR@-failsafe
 	menu label ^Live (@FLAVOUR@ failsafe)

@@ -13,6 +13,8 @@ libpam-systemd
 accountsservice
 upower
 
+# grub-pc
+
 lightdm
 # wicd
 connman

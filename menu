@@ -4,7 +4,7 @@ set -e
 
 RED='\033[0;41;30m'
 STD='\033[0;0;39m'
-_VERSION='8.8'
+_VERSION='8.9'
 _SOURCE='star-livinia'
 
 _FLAVOURS=""
@@ -173,7 +173,7 @@ update(){
 	sed -i -e 's/VERSION/'${_VERSION}'/g' ./includes.chroot/etc/issue
 	sed -i -e 's/VERSION/'${_VERSION}'/g' ./includes.chroot/etc/issue.net
 	sed -i -e 's/VERSION/'${_VERSION}'/g' ./includes.chroot/etc/motd
-	sed -i -e 's/VERSION/'${_VERSION}'/g' ./includes.chroot/etc/os-release
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/os-release
 	#echo $PWD	
 	cd ../..
 	#echo $PWD
